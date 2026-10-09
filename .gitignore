@@ -1,0 +1,36 @@
+# Local datasets: only the format guide belongs in Git
+dataset/*
+!dataset/README.md
+data/
+annotations/
+positions/
+*.csv
+*.tsv
+*.npy
+*.npz
+*.mat
+*.h5
+*.hdf5
+*.zip
+*.rar
+# Credentials and local settings
+.local_*
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+# Generated outputs and installed dependencies
+runs/
+vendor/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.log
+benchmark.json
+benchmark_log.txt
+demo.html
+.DS_Store
+Thumbs.db

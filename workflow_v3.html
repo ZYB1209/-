@@ -1,0 +1,11 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>v3 多模态DSP工作流</title>
+<style>body{font:16px 'Microsoft YaHei',sans-serif;background:#f1f5f6;color:#18313d;max-width:900px;margin:40px auto;padding:20px}article{padding:18px;border:1px solid #bcd7d4;border-radius:12px;background:white;margin:12px 0}h1{font-size:27px}p{line-height:1.8}.arrow{text-align:center;color:#146f6b;font-size:24px}</style>
+<h1>钢绳漏磁智能体 v3.0</h1><p>用户问题决定任务；检测通过以下闭环执行。原 v2 三条固定路线保留用于对照。</p>
+<article>① 读取三轴 × 时间 × 32通道浮点信号；2048点分段，256点上下文。</article><div class="arrow">↓</div>
+<article>② 数值工具计算 S/C/D/O 和周期方向；独立 Qwen 接口读取固定三轴拼图，返回形态 schema。未配置/失败明确标记。</article><div class="arrow">↓</div>
+<article>③ 检查感知冲突；结合专家工具知识，由 DeepSeek 选择 A轻量 / B股纹 / C宽背景 / D局部增强模板，选择档位和可选步骤。</article><div class="arrow">↓</div>
+<article>④ 参数 guard 校验白名单、合法组合、长度限制；工具测量方向/周期，离散档位映射数值并保存。</article><div class="arrow">↓</div>
+<article>⑤ 执行 DSP；Verifier 检查局部响应保留、背景能量、包络峰漂移、动态范围、NaN/Inf。</article><div class="arrow">↓</div>
+<article>⑥ 接受 → 输出；拒绝 → 反馈给规划模型，最多修订一次；再次拒绝 → MA201+Hilbert 安全基线。保存每次计划、验证与最终实际步骤。</article><div class="arrow">↓</div>
+<article>⑦ 重叠融合 → 统一冻结检测器 → 采样点/名义秒坐标 → 候选与证据图。只有实测位置映射才输出米。</article>
+<p>推理不读取 GT。人工工况标签和 GT 只进入离线评估；未完成专家标注、Qwen实测及独立测试前，不宣称准确率提高。</p><a href="/">返回应用</a></html>

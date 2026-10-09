@@ -1,0 +1,88 @@
+{
+  "version": "0.3",
+  "nodes": {
+    "audit": {
+      "title": "数据检查",
+      "purpose": "确认三轴通道、采样率、来源与坐标条件"
+    },
+    "signal_image": {
+      "title": "三轴信号成图",
+      "purpose": "构造完整分辨率浮点图矩阵"
+    },
+    "temporal_channel": {
+      "title": "时间检测：通道响应工具",
+      "purpose": "提取通道局部响应并定位时间候选"
+    },
+    "temporal_energy": {
+      "title": "时间检测：补充能量工具",
+      "purpose": "从另一种响应提取方式产生补充候选"
+    },
+    "candidate_merge": {
+      "title": "候选融合",
+      "purpose": "合并区间、保留工具来源"
+    },
+    "boundary_refine": {
+      "title": "局部定位：范围复核",
+      "purpose": "局部提取、三轴证据、边界提议与保守选择"
+    },
+    "coordinate_mapping": {
+      "title": "坐标映射",
+      "purpose": "采样点到时间；有实测映射才给长度坐标"
+    },
+    "render_image": {
+      "title": "证据图生成",
+      "purpose": "显示候选并记录图像坐标映射"
+    },
+    "structured_report": {
+      "title": "结构化报告",
+      "purpose": "保存位置、范围、状态与执行日志"
+    }
+  },
+  "routes": {
+    "full_scan": {
+      "tool": "scan",
+      "arguments": {
+        "mode": "fast"
+      },
+      "purpose": "整条检测"
+    },
+    "region_scan": {
+      "tool": "scan",
+      "arguments": {
+        "mode": "fast",
+        "region": [
+          2500,
+          5000
+        ]
+      },
+      "purpose": "指定5–10秒的范围检测"
+    },
+    "supplementary_scan": {
+      "tool": "scan",
+      "arguments": {
+        "mode": "balanced"
+      },
+      "purpose": "增加补充检测工具，结果不保证更准确"
+    },
+    "explain_candidate": {
+      "tool": "explain",
+      "arguments": {
+        "candidate_id": "D01"
+      },
+      "purpose": "已有结果复用→局部证据图→解释"
+    },
+    "compare_tools": {
+      "tool": "compare",
+      "arguments": {},
+      "purpose": "运行单/双工具组合并比较"
+    },
+    "evaluate": {
+      "tool": "evaluate",
+      "arguments": {
+        "mode": "fast"
+      },
+      "purpose": "用户明确要求时单独读取标注评估"
+    }
+  },
+  "contract": "模型选择任务工具与参数；执行器落实工具组合和条件分支。工具结果回传模型生成解释。"
+}
