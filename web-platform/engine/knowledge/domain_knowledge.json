@@ -1,0 +1,1484 @@
+{
+  "version": "3.2",
+  "description": "五篇论文与一份用户理论方法说明的可追溯知识",
+  "sources": [
+    {
+      "id": "P2021",
+      "title": "Fault Diagnosis of Steel Wire Ropes Based on Magnetic Flux Leakage Imaging Under Strong Shaking and Strand Noises",
+      "publication_year": 2021,
+      "doi": "10.1109/TIE.2020.2973874",
+      "pdf_pages": 11,
+      "original_filename": "Fault_Diagnosis_of_Steel_Wire_Ropes_Based_on_Magnetic_Flux_Leakage_Imaging_Under_Strong_Shaking_and_Strand_Noises.pdf",
+      "sha256": "5907a2833efd942055d0ab0c1ef5d889be9dd0ca41bcd8851aebf12e1bf6c4e5"
+    },
+    {
+      "id": "P2023",
+      "title": "Shaking Noise Exploration and Elimination for Detecting Local Flaws of Steel Wire Ropes Based on Magnetic Flux Leakages",
+      "publication_year": 2023,
+      "doi": "10.1109/TIE.2022.3174302",
+      "pdf_pages": 11,
+      "original_filename": "Shaking_Noise_Exploration_and_Elimination_for_Detecting_Local_Flaws_of_Steel_Wire_Ropes_Based_on_Magnetic_Flux_Leakages.pdf",
+      "sha256": "5144103cbca855625d4262ed772c6034046c63ba4821a87ff8198697652e4ba3"
+    },
+    {
+      "id": "P2024TFO",
+      "title": "Adaptive Local Flaw Detection Based on Magnetic Flux Leakage Images With a Noise Distortion Effect for Steel Wire Ropes",
+      "publication_year": 2024,
+      "online_publication_year": 2023,
+      "doi": "10.1109/TIE.2023.3273250",
+      "pdf_pages": 10,
+      "original_filename": "Adaptive_Local_Flaw_Detection_Based_on_Magnetic_Flux_Leakage_Images_With_a_Noise_Distortion_Effect_for_Steel_Wire_Ropes.pdf",
+      "sha256": "50ddc17ef0db34ad234834c55d8b420f77519026ca0b6764e5750b25b2976153"
+    },
+    {
+      "id": "P2025PYRAMID",
+      "title": "Local Flaw Detection With Adaptive Pyramid Image Fusion Across Spatial Sampling Resolution for SWRs",
+      "publication_year": 2025,
+      "doi": "10.1109/JSEN.2025.3564297",
+      "pdf_pages": 13,
+      "original_filename": "Local_Flaw_Detection_With_Adaptive_Pyramid_Image_Fusion_Across_Spatial_Sampling_Resolution_for_SWRs.pdf",
+      "sha256": "dffde2b2512487fe49dbf060e55abbe706b984487f6fe97bfeee31452287dfbb"
+    },
+    {
+      "id": "P2025UCA",
+      "title": "ILF diagnosis for steel wire ropes based on physical information under uniform circular array",
+      "publication_year": 2025,
+      "doi": "10.1016/j.ndteint.2025.103403",
+      "pdf_pages": 10,
+      "original_filename": "2025-NDT&E-ILF_Diagnosis_under_Uniform_Circular_Array-杨磊磊.pdf",
+      "sha256": "b752ba3c52bbe376c14b1155ccc49a4c52759cd44748a84cf22d3bbea5cdda5d"
+    },
+    {
+      "id": "M2026DIPOLE",
+      "title": "钢丝绳漏磁统一模型与深度定位方法（用户提供的理论方法说明）",
+      "source_type": "method_note",
+      "publication_year": 2026,
+      "doi": "",
+      "pdf_pages": 0,
+      "document_sections": 12,
+      "original_filename": "钢丝绳漏磁统一模型与深度定位方法.md",
+      "sha256": "ca4d39f967dbdbbe77fbac30219417a048133603c27e5660d4e58b013be6ea24"
+    }
+  ],
+  "cards": [
+    {
+      "id": "K01",
+      "title": "漏磁与局部缺陷的基本关系",
+      "tags": [
+        "漏磁",
+        "原理",
+        "磁化",
+        "局部缺陷",
+        "断丝",
+        "LF",
+        "MFL"
+      ],
+      "body": "磁化后的钢丝绳在局部缺陷附近发生磁场分布变化，霍尔传感器阵列读取泄漏磁场响应。两篇论文主要讨论局部缺陷 LF 的检测与定位，采用环周径向霍尔阵列。",
+      "limitations": "响应峰不等于已确认断丝；两篇实验不能直接支撑任意绳型、内部缺陷、断丝数量或损伤程度的定量判断。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            1,
+            2,
+            3
+          ],
+          "locator": "II；Figs. 1–4"
+        },
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            1,
+            2,
+            3
+          ],
+          "locator": "I–II"
+        }
+      ],
+      "implementation_status": "文献知识；算法实现状态参见K24；不代表原实验指标已复现"
+    },
+    {
+      "id": "K02",
+      "title": "提离距离是抖动噪声的关键来源",
+      "tags": [
+        "抖动",
+        "提离",
+        "lift-off",
+        "振动",
+        "晃动",
+        "偏心",
+        "噪声"
+      ],
+      "body": "抖动使钢丝绳与传感器阵列发生相对位移，各传感器的提离距离改变，导致磁场和霍尔电压变化。靠近绳体一侧与远离一侧可出现相反变化，形成环周的大范围响应。",
+      "limitations": "相反变化依赖阵列几何和通道排序；不能要求每次抖动都在所有通道明显出现，也不能仅凭电压反推真实抖动位移。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            3,
+            4
+          ],
+          "locator": "III-A；Figs. 5–7"
+        },
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "locator": "II–III；Figs. 2–6"
+        }
+      ],
+      "implementation_status": "文献知识；算法实现状态参见K24；不代表原实验指标已复现"
+    },
+    {
+      "id": "K03",
+      "title": "单通道的峰值难以区分抖动和缺陷",
+      "tags": [
+        "抖动",
+        "单通道",
+        "峰值",
+        "脉冲",
+        "误报",
+        "幅值"
+      ],
+      "body": "在轴向采样序列上，抖动和局部缺陷都可能产生突变、脉冲；随机抖动也可具有宽频带。应结合同一时段的环周通道分布与局部图形，而非只看某一通道幅值。",
+      "limitations": "普通频率滤波并非一概无效；问题是在噪声与缺陷频带重叠时，抑制噪声可能同时削弱缺陷。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            3,
+            4,
+            7
+          ],
+          "locator": "III-A；IV-E"
+        },
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            3,
+            4,
+            5
+          ],
+          "locator": "III；Fig. 3"
+        }
+      ],
+      "implementation_status": "文献知识；算法实现状态参见K24；不代表原实验指标已复现"
+    },
+    {
+      "id": "K04",
+      "title": "信号图的坐标与三类典型形态",
+      "tags": [
+        "图像",
+        "成图",
+        "热力图",
+        "形态",
+        "条纹",
+        "通道",
+        "空间",
+        "时间"
+      ],
+      "body": "横轴为轴向采样点/位移、纵轴为环周通道/角度、像素值为漏磁响应时：局部缺陷通常是局部斑块，抖动常为跨多个通道的竖向条带，股纹常为周期性斜条纹。",
+      "limitations": "这些是文献工况下的判断线索，不是硬分类规则。轴交换会改变方向；三轴磁场分量与图像的轴向/环周两个坐标不是同一个概念。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            3,
+            4
+          ],
+          "locator": "Figs. 7–8"
+        },
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            4,
+            5
+          ],
+          "locator": "Fig. 3；III-C"
+        }
+      ],
+      "implementation_status": "文献知识；算法实现状态参见K24；不代表原实验指标已复现"
+    },
+    {
+      "id": "K05",
+      "title": "股纹噪声来自螺旋股结构",
+      "tags": [
+        "股纹",
+        "股噪",
+        "绳股",
+        "周期",
+        "斜条纹",
+        "strand",
+        "捻距"
+      ],
+      "body": "绳股呈螺旋结构，表面起伏造成周期性漏磁背景；不同环周通道相位不同，成图后形成斜向纹理。单通道的股纹频带可能与弱缺陷重叠。",
+      "limitations": "斜条纹方向和周期需由实际信号、捻距、采样尺度判断，不能直接套用论文图中的斜率。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            4
+          ],
+          "locator": "III-B；Fig. 8"
+        },
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            4,
+            6
+          ],
+          "locator": "Fig. 3；IV-A"
+        }
+      ],
+      "implementation_status": "文献知识；算法实现状态参见K24；不代表原实验指标已复现"
+    },
+    {
+      "id": "K06",
+      "title": "斜向股纹滤波、Hilbert包络与环周中值抗抖流程",
+      "tags": [
+        "2021",
+        "流程",
+        "pipeline",
+        "方向滤波",
+        "中值滤波",
+        "方法"
+      ],
+      "body": "通道均衡与轴向去趋势 → 环周样条插值（20→100）→ 沿股纹斜向重采样和零相位高通 → Hilbert 包络集中缺陷能量 → 环周中值背景估计并相减 → 阈值二值化定位。",
+      "limitations": "这是多步骤信号处理方法，无需训练大规模分类器；不代表无需参数选择或性能验证。完整流程已接入自适应工具，但存在工程迁移差异。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            6,
+            7,
+            8
+          ],
+          "locator": "IV；Fig. 11；Figs. 12–16"
+        }
+      ],
+      "implementation_status": "已在adaptive_signal.py实现算法级工程版本；参数/边界/三轴迁移与原论文有明示差异，未复现实验指标"
+    },
+    {
+      "id": "K07",
+      "title": "基线均衡与双向零相位滤波",
+      "tags": [
+        "基线",
+        "去趋势",
+        "零相位",
+        "移动平均",
+        "均衡",
+        "2021"
+      ],
+      "body": "用移动平均估计基线，再相减形成高通子系统；前向与反向各执行一次以减少相位失真。论文写作 H(z)=Hsub(z)Hsub(z^-1)，Hsub(z)=1−(1/Len)Σ(k=0..Len−1)z^-k。",
+      "limitations": "边界处理、窗口长度会影响结果；当前工具的移动均值去趋势不等于已严格复现该双向零相位系统。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            6,
+            8
+          ],
+          "locator": "Eq. (5)；IV-A；V-B"
+        }
+      ],
+      "implementation_status": "已在adaptive_signal.py实现算法级工程版本；参数/边界/三轴迁移与原论文有明示差异，未复现实验指标"
+    },
+    {
+      "id": "K08",
+      "title": "沿股纹方向滤波的原因",
+      "tags": [
+        "方向滤波",
+        "斜向",
+        "重采样",
+        "股纹",
+        "高通",
+        "2021"
+      ],
+      "body": "沿斜条纹方向取样时，股纹变化变慢，缺陷仍表现为较快的局部变化；此时高通滤波更容易保留弱缺陷。论文沿斜向重采样后再次使用零相位滤波。",
+      "limitations": "必须先可靠估计纹理方向；方向误差、边界、缺陷宽度和重采样插值会影响弱缺陷保留。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            4,
+            6,
+            8
+          ],
+          "locator": "III-B；IV-C；Fig. 13；V-A/B"
+        }
+      ],
+      "implementation_status": "已在adaptive_signal.py实现算法级工程版本；参数/边界/三轴迁移与原论文有明示差异，未复现实验指标"
+    },
+    {
+      "id": "K09",
+      "title": "包络可减少一个缺陷产生两个斑点",
+      "tags": [
+        "Hilbert",
+        "包络",
+        "双峰",
+        "两个",
+        "重复",
+        "能量",
+        "径向"
+      ],
+      "body": "论文中径向漏磁响应有正负双峰，直接成图可能让同一缺陷形成两个斑点。沿轴向取 Hilbert 包络可集中响应：e[n]=|x[n]+jH{x[n]}|。",
+      "limitations": "包络不自动解决相邻缺陷粘连，也不能据此把所有双峰合并；该双峰规律不能无条件复制到三轴每个分量。2021 在抗抖前取包络，2023 在去噪后取包络。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            6,
+            7,
+            8
+          ],
+          "locator": "IV-D；Fig. 15"
+        },
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            6,
+            7,
+            9
+          ],
+          "locator": "IV-A/C；Fig. 16"
+        }
+      ],
+      "implementation_status": "已在adaptive_signal.py实现算法级工程版本；参数/边界/三轴迁移与原论文有明示差异，未复现实验指标"
+    },
+    {
+      "id": "K10",
+      "title": "环周中值背景抑制的抗抖机制",
+      "tags": [
+        "中值",
+        "median",
+        "背景",
+        "抗抖",
+        "2021"
+      ],
+      "body": "在同一轴向位置沿环周方向做中值滤波，估计较大范围的抖动背景，再用原响应减去估计背景。论文图中中值法相对同跨度均值法更能保留局部峰与背景边缘。",
+      "limitations": "窗口不是越大越好；缺陷占据较多通道、抖动与缺陷重叠时，背景估计可能受污染，弱缺陷可能被削弱。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            7
+          ],
+          "locator": "IV-E；Fig. 14"
+        },
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            5,
+            10
+          ],
+          "locator": "III-C；VI-B"
+        }
+      ],
+      "implementation_status": "已在adaptive_signal.py实现算法级工程版本；参数/边界/三轴迁移与原论文有明示差异，未复现实验指标"
+    },
+    {
+      "id": "K11",
+      "title": "抖动与局部缺陷响应的三类关系",
+      "tags": [
+        "2023",
+        "重叠",
+        "包围",
+        "覆盖",
+        "三种",
+        "Type",
+        "抖动"
+      ],
+      "body": "Type 1：抖动与缺陷在轴向上分离；Type 2：抖动与缺陷重叠；Type 3：抖动围绕缺陷。后两类尤其容易产生残余噪声、误报或缺陷削弱，是2023方法的重要针对场景。",
+      "limitations": "类别描述信号与噪声的相对形态，不是三种缺陷类型。不能仅凭当前工具的候选分数确定所属类别。",
+      "references": [
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            5,
+            9,
+            10
+          ],
+          "locator": "III-C；Fig. 7；VI"
+        }
+      ],
+      "implementation_status": "文献知识；算法实现状态参见K24；不代表原实验指标已复现"
+    },
+    {
+      "id": "K12",
+      "title": "Kalman去趋势、正负分组与形态学背景抑制流程",
+      "tags": [
+        "2023",
+        "流程",
+        "pipeline",
+        "形态学",
+        "方法"
+      ],
+      "body": "Kalman 去趋势 → 轴向和环周样条插值 → 正负响应分开 → 竖线结构元闭运算重构股纹 → 竖线开运算识别抖动 → 顶帽背景相减 → 方形开运算清理残留 → 合并正负并取轴向 Hilbert 包络 → 恢复尺寸 → 二值化。",
+      "limitations": "环周插值至360、轴向5倍是论文实验设置。不能直接用于我们的32通道和500Hz数据；已完成工程算法复现，原实验数据与完整参数不可用。",
+      "references": [
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "locator": "IV；Figs. 8–16"
+        }
+      ],
+      "implementation_status": "已在adaptive_signal.py实现算法级工程版本；参数/边界/三轴迁移与原论文有明示差异，未复现实验指标"
+    },
+    {
+      "id": "K13",
+      "title": "为什么先分正负再做形态学",
+      "tags": [
+        "正负",
+        "符号",
+        "绝对值",
+        "包络",
+        "形态学",
+        "2023"
+      ],
+      "body": "2023论文先分别处理正、负漏磁响应，保留抖动与缺陷的形态差异；若先取包络，原有形态可能变复杂，不利于结构元分离。去噪后再合并并集中缺陷能量。",
+      "limitations": "这是该形态学流程的设计，不意味着所有检测器必须先分正负；应对比不同顺序对弱缺陷的影响。",
+      "references": [
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            6,
+            7,
+            8
+          ],
+          "locator": "IV-A-3；IV-C；Fig. 13"
+        }
+      ],
+      "implementation_status": "已在adaptive_signal.py实现算法级工程版本；参数/边界/三轴迁移与原论文有明示差异，未复现实验指标"
+    },
+    {
+      "id": "K14",
+      "title": "闭运算重构股纹，不是一步直接删掉股纹",
+      "tags": [
+        "闭运算",
+        "膨胀",
+        "腐蚀",
+        "结构元",
+        "股纹",
+        "2023"
+      ],
+      "body": "闭运算先膨胀再腐蚀。2023用竖线结构元连接斜向股纹，使其变成可被后续抗抖步骤处理的块状、近似竖线背景，同时尽量保留局部缺陷斑块。",
+      "limitations": "这一中间结果仍包含重构后的背景；必须与后续开运算、背景相减联合理解。结构元尺寸影响缺陷能否保留。",
+      "references": [
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            6
+          ],
+          "locator": "IV-A-4；Figs. 8–9"
+        }
+      ],
+      "implementation_status": "已在adaptive_signal.py实现算法级工程版本；参数/边界/三轴迁移与原论文有明示差异，未复现实验指标"
+    },
+    {
+      "id": "K15",
+      "title": "开运算估计抖动，顶帽提取局部残差",
+      "tags": [
+        "开运算",
+        "顶帽",
+        "top-hat",
+        "腐蚀",
+        "膨胀",
+        "抖动",
+        "2023"
+      ],
+      "body": "开运算先腐蚀再膨胀。竖线结构元偏向保留竖向背景、去掉较小局部斑块，再通过背景相减保留缺陷，最后方形开运算抑制剩余小噪声。",
+      "limitations": "2023正文对顶帽写成“开运算结果减原图”，但Fig.12图示为原图减开运算结果，与通常白顶帽 I−open(I) 一致。复现时需核对符号，不能照抄这句疑似笔误；也不能把方形开运算当作无损去噪。",
+      "references": [
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            7
+          ],
+          "locator": "IV-B；Figs. 10–12"
+        }
+      ],
+      "implementation_status": "已在adaptive_signal.py实现算法级工程版本；参数/边界/三轴迁移与原论文有明示差异，未复现实验指标"
+    },
+    {
+      "id": "K16",
+      "title": "论文阈值和结构元尺寸有工况限制",
+      "tags": [
+        "阈值",
+        "参数",
+        "窗口",
+        "结构元",
+        "校准",
+        "2023",
+        "2021"
+      ],
+      "body": "2021实验均衡窗口Len=20，斜向滤波Len=10；模拟斜向Len=8，二值阈值0.07，实验二值阈值0.02。2023实验竖线长度120、方形结构元尺寸20、阈值5mV。它们来自各自处理尺度与实验经验。",
+      "limitations": "阈值不是经统计校准的缺陷概率；插值后尺寸不等于原始通道/样本尺寸。应在独立验证数据上选择参数，并报告误报、漏报及弱缺陷保留情况。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            7,
+            8
+          ],
+          "locator": "IV-F；V"
+        },
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            8
+          ],
+          "locator": "V"
+        }
+      ],
+      "implementation_status": "已在adaptive_signal.py实现算法级工程版本；参数/边界/三轴迁移与原论文有明示差异，未复现实验指标"
+    },
+    {
+      "id": "K17",
+      "title": "插值提高显示与运算采样密度",
+      "tags": [
+        "插值",
+        "分辨率",
+        "360",
+        "100",
+        "精度",
+        "空间",
+        "定位"
+      ],
+      "body": "2021环周20通道插值到100；2023环周到360、轴向5倍，以便执行图像运算和形态分离。插值能够使图形更平滑。",
+      "limitations": "插值不增加独立传感器观测，也不自动提高真实定位精度；缺陷边界仍需用原始采样尺度、标注和位置标定验证。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            6
+          ],
+          "locator": "IV-B"
+        },
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            5,
+            6,
+            8
+          ],
+          "locator": "IV-A；V"
+        }
+      ],
+      "implementation_status": "已在adaptive_signal.py实现算法级工程版本；参数/边界/三轴迁移与原论文有明示差异，未复现实验指标"
+    },
+    {
+      "id": "K18",
+      "title": "时间位置、长度位置与真实损伤范围",
+      "tags": [
+        "时间",
+        "长度",
+        "米",
+        "编码器",
+        "位置",
+        "定位",
+        "范围",
+        "500",
+        "三轴"
+      ],
+      "body": "2021使用编码器触发等位移采样，Fs=2/3 samples/mm；它与按Hz计的时间采样不同。我们的工具按名义500Hz输出t=n/500；若有覆盖整条记录的实测位置映射，才可插值得到长度坐标。",
+      "limitations": "仅有时间和采样率不能给米位置。漏磁响应区间不是实际断口/损伤长度。无经验证的速度或编码器信息，不把秒乘假定速度输出米。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            3,
+            5
+          ],
+          "locator": "II；III-D；Fig. 5"
+        }
+      ],
+      "implementation_status": "文献知识 + 当前工具已有时间映射/可选实测长度映射"
+    },
+    {
+      "id": "K19",
+      "title": "向三轴32通道数据迁移需要哪些条件",
+      "tags": [
+        "三轴",
+        "32",
+        "径向",
+        "轴向",
+        "切向",
+        "角度",
+        "通道",
+        "迁移"
+      ],
+      "body": "两篇论文主要针对20通道径向霍尔阵列。迁移到三轴时应先核对每个分量的物理方向、通道环周顺序和间距、极性、增益、采样同步、提离及位置坐标；各分量分别成图并保留原始尺度。",
+      "limitations": "不能根据x/y/z名称就断言某轴是径向；三轴均出现响应是辅助证据，不保证是真缺陷。跨轴一致性和方向滤波的效果需要在我们的数据上验证。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            2,
+            3,
+            6
+          ],
+          "locator": "II；IV-D"
+        },
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            2,
+            3,
+            4
+          ],
+          "locator": "II；Fig. 3"
+        }
+      ],
+      "implementation_status": "工程迁移建议；不是论文已验证的三轴结论"
+    },
+    {
+      "id": "K20",
+      "title": "斜向滤波与中值抗抖的定性实验比较",
+      "tags": [
+        "2021",
+        "表格",
+        "Table",
+        "陷波",
+        "2DFT",
+        "比较",
+        "性能",
+        "效果"
+      ],
+      "body": "Table II定性列出：陷波/2DFT/提出方法对股纹均为Good；抖动抑制分别Bad/Bad/Good；缺陷衰减分别Severe/Medium/Low；振铃分别Severe/Low/Low。理想窄带模拟中陷波效果较好，但实测频带重叠时可能削弱缺陷并产生振铃。",
+      "limitations": "Good/Bad等是论文定性比较，不是准确率、F1或统计显著性，也不能认为提出方法在所有数据上都优于陷波。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            9,
+            10
+          ],
+          "locator": "VI；Figs. 18–21；Table II"
+        }
+      ],
+      "implementation_status": "文献知识；算法实现状态参见K24；不代表原实验指标已复现"
+    },
+    {
+      "id": "K21",
+      "title": "形态学抗抖研究中的性能表与SNR数字疑点",
+      "tags": [
+        "SNR",
+        "信噪比",
+        "2023",
+        "Table",
+        "表格",
+        "性能",
+        "267",
+        "误报",
+        "漏报"
+      ],
+      "body": "Table III：旧方法/新方法FN=0/0，FP=24/1；最弱缺陷幅值60.039/14.099mV，最大抖动幅值54.907/1.987mV，列出SNR=1.934/7.096，增幅267%。文中SNR定义为最弱缺陷幅值除以最大抖动幅值，不是功率比或dB。",
+      "limitations": "按给定幅值重算旧方法60.039/54.907≈1.093，新方法≈7.096；旧方法表列1.934与定义和幅值不一致。267%来自7.096/1.934−1，按幅值重算则约549%。应保留这一疑点，不宣称已消除全部误报或将SNR当概率。",
+      "references": [
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            9,
+            10
+          ],
+          "locator": "VI-B；Table III；Fig. 18"
+        }
+      ],
+      "implementation_status": "文献知识；算法实现状态参见K24；不代表原实验指标已复现"
+    },
+    {
+      "id": "K22",
+      "title": "论文实验规模与泛化边界",
+      "tags": [
+        "实验",
+        "数据集",
+        "人工",
+        "泛化",
+        "训练",
+        "准确率",
+        "2021",
+        "2023"
+      ],
+      "body": "两篇实测均围绕六股、直径29mm钢丝绳及5个人工局部缺陷。2021还用现象学信号模拟验证；2023比较另行采集含重叠/包围抖动的数据，明确没有直接使用2021那条实测信号。",
+      "limitations": "有限人工缺陷与选定工况不能证明对任意绳型、速度、传感器、真实服役损伤都有效；当前agent的数据结果也需单独验证，不能照搬论文性能。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            5,
+            8,
+            9,
+            10
+          ],
+          "locator": "III-D；V–VI"
+        },
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            3,
+            8,
+            9
+          ],
+          "locator": "II-C；V；VI-A"
+        }
+      ],
+      "implementation_status": "文献知识；算法实现状态参见K24；不代表原实验指标已复现"
+    },
+    {
+      "id": "K23",
+      "title": "现象学模拟用于工具验证",
+      "tags": [
+        "仿真",
+        "模拟",
+        "公式",
+        "现象学",
+        "股纹",
+        "训练",
+        "2021"
+      ],
+      "body": "2021模拟x[m,n]=s[m,n]+f[m,n]+noise[m,n]，其中股纹s=sin(2πS·n/(FsL)+2πS·m/M)，S是股数、Fs是samples/mm、L是捻距mm、M是通道数。缺陷沿轴向是有限长度响应，沿环周呈局部衰减，另加白噪声。",
+      "limitations": "这不是有限元磁场求解，也不是三轴真实数据生成器。论文该模拟未包含抖动，不能仅用此模型验证抗抖性能；工程模拟需另外定义提离扰动并与实测核对。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            4,
+            5,
+            8
+          ],
+          "locator": "Eqs. (1)–(4)；III-C；V-A"
+        }
+      ],
+      "implementation_status": "文献知识；算法实现状态参见K24；不代表原实验指标已复现"
+    },
+    {
+      "id": "K24",
+      "title": "智能体应怎样使用文献知识与检测证据",
+      "tags": [
+        "智能体",
+        "agent",
+        "工具",
+        "检测",
+        "复核",
+        "证据",
+        "工作流",
+        "知识库"
+      ],
+      "body": "当前可执行工具为audit/scan/explain/compare/evaluate/lookup_knowledge/inspect_conditions/adaptive_detect。inspect_conditions测量分段噪声形态；模型选择auto或逐段routes；adaptive_detect执行2021方向滤波+中值抗抖、2023正负形态学抗抖或基线包络，记录参数、保留检查与回退。模型读取结构化结果，未直接读取PNG。",
+      "limitations": "上述为算法级工程复现与三轴迁移，Kalman Q/R等参数未公开，已明示工程取值；原论文数据不可用。噪声特征不等于实际机械工况，响应保留检查不是缺陷召回率；模型不可声称达到原论文性能。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            6,
+            7
+          ],
+          "locator": "IV"
+        },
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            6,
+            7
+          ],
+          "locator": "IV"
+        }
+      ],
+      "implementation_status": "已接入自适应算法工具；性能仍需独立验证"
+    },
+    {
+      "id": "K25",
+      "title": "建议的抗噪复核与评估路径",
+      "tags": [
+        "工作流",
+        "评估",
+        "复核",
+        "误报",
+        "漏报",
+        "IoU",
+        "消融",
+        "工具"
+      ],
+      "body": "后续可先检查图中周期斜纹和跨通道背景，再按现象选择股纹/抗抖工具，联合原图、处理图、跨轴指标复核时间候选，最后映射长度位置。比较去噪前后误报、漏报、弱缺陷幅值和边界误差，并分别测试分离、重叠、包围抖动场景。",
+      "limitations": "这是根据两篇论文提出的工程方案，尚未执行验证。按物理采集/绳段划分数据，角度派生视图不能当独立测试样本；不得使用真值标注直接决定检测输出。",
+      "references": [
+        {
+          "source": "P2021",
+          "pdf_pages": [
+            8,
+            9,
+            10
+          ],
+          "locator": "V–VI"
+        },
+        {
+          "source": "P2023",
+          "pdf_pages": [
+            5,
+            9,
+            10
+          ],
+          "locator": "III-C；VI"
+        }
+      ],
+      "implementation_status": "基本路径已实现；路线阈值与跨绳型泛化仍需独立验证"
+    },
+    {
+      "id": "K26",
+      "title": "噪声畸变与目标特征导向",
+      "tags": [
+        "噪声畸变",
+        "TFO",
+        "目标特征",
+        "2024"
+      ],
+      "body": "股纹/抖动的形态和方向可能畸变，依赖固定噪声形态的抑制方法会失效。TFO以局部缺陷的峰谷组合为目标进行增强，而不是先假定噪声形状再删除。",
+      "limitations": "不应从灰度图直接确诊机械抖动；畸变噪声也可能与目标相似。",
+      "references": [
+        {
+          "source": "P2024TFO",
+          "pdf_pages": [
+            3,
+            4,
+            5
+          ],
+          "locator": "III; IV-B"
+        }
+      ],
+      "implementation_status": "paper_methods.py工程实现及知识卡；尚未证明复现原作者性能"
+    },
+    {
+      "id": "K27",
+      "title": "扩展Prewitt双极性模板",
+      "tags": [
+        "Prewitt",
+        "双极性",
+        "峰谷",
+        "TFO",
+        "模板匹配"
+      ],
+      "body": "2024方法用9×9扩展Prewitt模板匹配轴向峰谷组合，取卷积绝对值以消除方向极性影响；输入环周样条插值至200列。",
+      "limitations": "模板大小依赖响应尺度。当前三轴32通道分别适配，不能等同于论文16通道原实验。",
+      "references": [
+        {
+          "source": "P2024TFO",
+          "pdf_pages": [
+            5
+          ],
+          "locator": "Fig.5; Eq.5"
+        }
+      ],
+      "implementation_status": "paper_methods.py工程实现及知识卡；尚未证明复现原作者性能"
+    },
+    {
+      "id": "K28",
+      "title": "Gamma增强会相对压低弱响应",
+      "tags": [
+        "gamma",
+        "γ",
+        "幂律",
+        "弱缺陷",
+        "SNR"
+      ],
+      "body": "目标模板响应经gamma=2幂律变换，较强目标的对比度被放大；作者同时指出过大的gamma会让同段中的弱目标更难定位。",
+      "limitations": "不能把该非线性特征图与原始磁幅值直接比，也不能把作者定义下的SNR倍增等同于缺陷召回保证。",
+      "references": [
+        {
+          "source": "P2024TFO",
+          "pdf_pages": [
+            5
+          ],
+          "locator": "Eqs.6–8; IV-B2"
+        }
+      ],
+      "implementation_status": "paper_methods.py工程实现及知识卡；尚未证明复现原作者性能"
+    },
+    {
+      "id": "K29",
+      "title": "峰值三次样条包络不同于Hilbert",
+      "tags": [
+        "包络",
+        "样条",
+        "Hilbert",
+        "三峰",
+        "TFO"
+      ],
+      "body": "模板匹配后一个双极性响应可能形成三条高响应条纹。作者逐通道寻找局部最大值，并用三次样条连接为上包络，以便把一个目标表现为单峰。",
+      "limitations": "本实现加自然边界、非负及实测特征保护，属于明确工程适配；不是Hilbert包络。",
+      "references": [
+        {
+          "source": "P2024TFO",
+          "pdf_pages": [
+            5,
+            6
+          ],
+          "locator": "Fig.6; IV-B3"
+        }
+      ],
+      "implementation_status": "paper_methods.py工程实现及知识卡；尚未证明复现原作者性能"
+    },
+    {
+      "id": "K30",
+      "title": "全采集均值提议门限",
+      "tags": [
+        "CFAR",
+        "提议",
+        "阈值",
+        "alpha",
+        "TFO"
+      ],
+      "body": "先计算同次检测所有增强包络图的平均值mu，设提议门限T1=alpha×mu。最大特征值超过T1的分段进入定位，论文alpha=7。",
+      "limitations": "alpha是作者基于先验实验选择的值，当前硬件与数据未校准；不能声称恒定虚警率已经统计保证。",
+      "references": [
+        {
+          "source": "P2024TFO",
+          "pdf_pages": [
+            6
+          ],
+          "locator": "Fig.8; Eqs.9–10"
+        }
+      ],
+      "implementation_status": "paper_methods.py工程实现及知识卡；尚未证明复现原作者性能"
+    },
+    {
+      "id": "K31",
+      "title": "连通区域平台自适应定位",
+      "tags": [
+        "连通域",
+        "平台",
+        "8邻域",
+        "定位",
+        "TFO"
+      ],
+      "body": "对候选图归一化至0–1，以0.01步长遍历阈值，统计8邻接连通区域数。稳定平台用于选择能区分目标与残余噪声的阈值，再形成二维响应区域。",
+      "limitations": "论文未给出完整平台长度和多平台冲突规则；至少5步、低端阈值、面积过滤是本实现的工程选择，需实验验证。",
+      "references": [
+        {
+          "source": "P2024TFO",
+          "pdf_pages": [
+            6,
+            7
+          ],
+          "locator": "Fig.7–9; IV-C"
+        }
+      ],
+      "implementation_status": "paper_methods.py工程实现及知识卡；尚未证明复现原作者性能"
+    },
+    {
+      "id": "K32",
+      "title": "文献响应区域与物理损伤范围",
+      "tags": [
+        "范围",
+        "边界",
+        "三轴",
+        "16通道",
+        "32通道",
+        "标注"
+      ],
+      "body": "文献定位对象是增强漏磁图中的二维连通区域；本系统输出其时间投影并按三轴重叠融合。",
+      "limitations": "图像响应框、人工标注时间区间和实际断口长度并非同一量；需要分别验证。原文实验条件不直接迁移。",
+      "references": [
+        {
+          "source": "P2024TFO",
+          "pdf_pages": [
+            7,
+            8,
+            9
+          ],
+          "locator": "IV-C; V; VI"
+        }
+      ],
+      "implementation_status": "paper_methods.py工程实现及知识卡；尚未证明复现原作者性能"
+    },
+    {
+      "id": "K33",
+      "title": "SSR由采样率与实测速度共同决定",
+      "tags": [
+        "SSR",
+        "空间采样",
+        "采样率",
+        "速度",
+        "2025",
+        "金字塔"
+      ],
+      "body": "2025论文定义空间采样分辨率SSR=fs/v。采样率下降或速度增加都会压缩轴向图像；归一化比值mu=SSR_extreme/SSR，作者参考为250Hz与1.5m/s。",
+      "limitations": "当前没有实测速度，不能由视觉、IMU或噪声特征臆测SSR。未知条件下只提供等权多尺度工程参考。",
+      "references": [
+        {
+          "source": "P2025PYRAMID",
+          "pdf_pages": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "locator": "Eq.4,7–8"
+        }
+      ],
+      "implementation_status": "paper_methods.py工程实现及知识卡；尚未证明复现原作者性能"
+    },
+    {
+      "id": "K34",
+      "title": "SSR自适应模板尺寸",
+      "tags": [
+        "模板尺寸",
+        "自适应卷积",
+        "SSR",
+        "Kbase",
+        "金字塔"
+      ],
+      "body": "作者从约5像素目标尺度选择基础核，按Ka=ceil(Kbase+alpha×(1-mu))调整，敏感因子alpha=5。",
+      "limitations": "适用原采集设备和参考SSR；当前实现把偶数尺寸上调为奇数并记录，不能隐藏这一适配。",
+      "references": [
+        {
+          "source": "P2025PYRAMID",
+          "pdf_pages": [
+            5,
+            6,
+            7
+          ],
+          "locator": "Fig.7–8; Eq.9"
+        }
+      ],
+      "implementation_status": "paper_methods.py工程实现及知识卡；尚未证明复现原作者性能"
+    },
+    {
+      "id": "K35",
+      "title": "三层多尺度金字塔",
+      "tags": [
+        "Gaussian",
+        "多尺度",
+        "金字塔",
+        "pyramid",
+        "缩采样"
+      ],
+      "body": "构造原尺度、1/2尺度和1/4尺度三层图，在各层执行双极性模板、gamma与峰值包络，再恢复原坐标融合。",
+      "limitations": "缩采样不能增加原始采集信息；小目标可能在粗尺度消失。式5的缩采样记号需核对，工程实现采用Gaussian抗混叠。",
+      "references": [
+        {
+          "source": "P2025PYRAMID",
+          "pdf_pages": [
+            5,
+            6,
+            7
+          ],
+          "locator": "Fig.6–7; Eq.5–6,10"
+        }
+      ],
+      "implementation_status": "paper_methods.py工程实现及知识卡；尚未证明复现原作者性能"
+    },
+    {
+      "id": "K36",
+      "title": "金字塔权重与递推融合的解释边界",
+      "tags": [
+        "权重",
+        "融合",
+        "mu",
+        "SSR",
+        "金字塔"
+      ],
+      "body": "式11–13给出mu²、2mu(1-mu)、(1-mu)²；式14给出逐层递推。本实现采用最粗层初始化后递推，记录名义权重与实际有效权重。",
+      "limitations": "不能把递推式悄悄替换成直接加权求和。初始化原文未完全说明；高低SSR层权重的文字叙述也有不一致，须与作者确认。",
+      "references": [
+        {
+          "source": "P2025PYRAMID",
+          "pdf_pages": [
+            6,
+            7,
+            8
+          ],
+          "locator": "Eqs.11–14; III-B4; IV-B"
+        }
+      ],
+      "implementation_status": "paper_methods.py工程实现及知识卡；尚未证明复现原作者性能"
+    },
+    {
+      "id": "K37",
+      "title": "畸变股纹与速度效应",
+      "tags": [
+        "速度效应",
+        "涡流",
+        "畸变",
+        "股纹",
+        "金字塔"
+      ],
+      "body": "速度与采样率改变目标和股纹在图像中的尺度；论文还讨论运动诱导涡流对形态的影响，说明仅依赖单一模板尺度可能误识别股纹。",
+      "limitations": "当前数据不能从图像证明涡流或确定速度；这些是选择多尺度检查的文献线索。",
+      "references": [
+        {
+          "source": "P2025PYRAMID",
+          "pdf_pages": [
+            3,
+            4
+          ],
+          "locator": "II-B–D; Figs.2–5"
+        }
+      ],
+      "implementation_status": "paper_methods.py工程实现及知识卡；尚未证明复现原作者性能"
+    },
+    {
+      "id": "K38",
+      "title": "论文指标与当前评估不能混用",
+      "tags": [
+        "性能",
+        "准确率",
+        "precision",
+        "recall",
+        "IoU",
+        "2025"
+      ],
+      "body": "两篇论文在各自采集、噪声和标注条件下评价方法；本系统使用整条记录的时间区间IoU一对一匹配。",
+      "limitations": "知识卡不承诺复制论文成绩；二维框评价和时间投影评价也不能直接比较。新增工具未自动替换当前主检测器。",
+      "references": [
+        {
+          "source": "P2025PYRAMID",
+          "pdf_pages": [
+            1,
+            9,
+            10,
+            11,
+            12
+          ],
+          "locator": "Abstract; IV–V"
+        }
+      ],
+      "implementation_status": "paper_methods.py工程实现及知识卡；尚未证明复现原作者性能"
+    },
+    {
+      "id": "K39",
+      "title": "未知SSR时的工具选择",
+      "tags": [
+        "SSR未知",
+        "速度未知",
+        "工具选择",
+        "金字塔",
+        "TFO"
+      ],
+      "body": "可调用tfo_detect检查双极性目标特征；尺度不确定时可调用pyramid_tfo_detect对多个尺度生成响应。只有同步位置与单调原始时间可支撑速度和SSR计算。",
+      "limitations": "未知SSR采用等权和基础核的工程回退，并明确标记unknown；不宣称运行了作者的实测SSR自适应。",
+      "references": [
+        {
+          "source": "P2025PYRAMID",
+          "pdf_pages": [
+            5,
+            6,
+            7
+          ],
+          "locator": "III-A–B; Eqs.7,9,11–14"
+        }
+      ],
+      "implementation_status": "paper_methods.py工程实现及知识卡；尚未证明复现原作者性能"
+    },
+    {
+      "id": "K40",
+      "title": "内部局部缺陷的屏蔽效应与轴向分量选择",
+      "tags": [
+        "内部缺陷",
+        "轴向",
+        "截面",
+        "屏蔽"
+      ],
+      "body": "论文研究内部局部缺陷在钢丝绳中的漏磁扩散。随深度增加，信号受到绳体屏蔽；文中比较后采用16通道环形阵列采集轴向分量，利用环周分布补充单通道幅值的局限。",
+      "limitations": "X为本项目用户确认的轴向分量；Y/Z不能自动命名为径向和切向。16通道实验结论不能直接作为32通道现场性能。",
+      "implementation_status": "已接入专家知识，X轴用于方位分析",
+      "references": [
+        {
+          "source": "P2025UCA",
+          "pdf_pages": [
+            2,
+            3,
+            4
+          ],
+          "locator": "Sec.2.1–2.3, Fig.3–6"
+        }
+      ]
+    },
+    {
+      "id": "K41",
+      "title": "最强通道及相邻通道的环周方位插值",
+      "tags": [
+        "方位",
+        "环周",
+        "角度",
+        "样条",
+        "截面"
+      ],
+      "body": "在等间距环形阵列中，取信号最强通道n及其环周相邻通道。用三次样条细化局部峰位，再按alpha=2*pi*(n-2)/K+theta计算相对方位，n按1起始，theta相对于n-1通道。通道首尾应按环周周期处理。",
+      "limitations": "角度依赖真实通道顺序、零点、编号方向与增益。更细插值网格不是实测分辨率；强多峰或宽背景可能导致方位不唯一。",
+      "implementation_status": "已实现32通道自然样条工程适配，保持跨通道相对幅值",
+      "references": [
+        {
+          "source": "P2025UCA",
+          "pdf_pages": [
+            4,
+            6
+          ],
+          "locator": "Sec.3.1.1, Eq.(1), Fig.7; Sec.3.2, Fig.9"
+        }
+      ]
+    },
+    {
+      "id": "K42",
+      "title": "等效磁路与截面深度反演的前提",
+      "tags": [
+        "深度",
+        "截面",
+        "磁路",
+        "提离",
+        "定位"
+      ],
+      "body": "论文以磁偶极子和等效磁路描述漏磁传播。绳径R、传感器提离L、环周坐标及表面磁路过渡点用于建立截面几何关系；式(4)联系磁势、磁阻和磁通，式(5)给出圆周及共线约束。",
+      "limitations": "公开几何式还含表面过渡点等未知量，工程求解需明确磁路/幅值约束并验证可辨识性。不能只凭最强通道和任意绳径算出可信深度。",
+      "implementation_status": "该论文磁路几何反演未部署；另接入用户说明中的自由空间点偶极子中心截面条件反演，二者模型不同",
+      "references": [
+        {
+          "source": "P2025UCA",
+          "pdf_pages": [
+            5,
+            6
+          ],
+          "locator": "Sec.3.1.2, Eq.(2)–(5), Fig.8"
+        }
+      ]
+    },
+    {
+      "id": "K43",
+      "title": "融合峰峰值与定位信息的径向基网络量化",
+      "tags": [
+        "RBF",
+        "定量",
+        "断丝",
+        "缺陷大小",
+        "深度"
+      ],
+      "body": "论文将轴向漏磁峰峰值与定位得到的深度信息输入径向基函数网络，用有标签的数据训练缺陷大小或断丝量的回归。定位用于解释同幅值不同深度、同深度不同大小的响应。",
+      "limitations": "网络需要对应绳型、传感器、提离和真实缺陷标注；本文没有提供可直接部署到本项目的训练权重。不能仅凭大模型文字判断生成断丝数量。",
+      "implementation_status": "已接入量化方法知识；未训练回归网络，不输出断丝数量",
+      "references": [
+        {
+          "source": "P2025UCA",
+          "pdf_pages": [
+            6,
+            7,
+            9
+          ],
+          "locator": "Sec.4.1–4.2, Eq.(7)–(8), Fig.10–11; Sec.5.3"
+        }
+      ]
+    },
+    {
+      "id": "K44",
+      "title": "定位前应保留通道幅值与轴向双极性波形",
+      "tags": [
+        "幅值",
+        "峰峰值",
+        "定位",
+        "MVMD",
+        "归一化"
+      ],
+      "body": "论文使用轴向峰峰值描述环周分布，实测先用多变量变分模态分解降低高频噪声，强调尽量保留缺陷分量幅值。环周主峰关系是定位依据。",
+      "limitations": "逐通道独立幅值归一化会改变通道相对强度，不能直接用显示灰度或逐通道MAD图反推方位。本项目未复现多变量变分模态分解。",
+      "implementation_status": "使用原始CSV减201点移动均值，采用95%–5%稳健峰峰值作抗离群适配，保存原始峰峰值对照",
+      "references": [
+        {
+          "source": "P2025UCA",
+          "pdf_pages": [
+            4,
+            7,
+            8
+          ],
+          "locator": "Sec.2.3, Fig.6; Sec.5.1, Fig.13"
+        }
+      ]
+    },
+    {
+      "id": "K45",
+      "title": "示意几何与真实缺陷坐标必须分别报告",
+      "tags": [
+        "截面",
+        "标定",
+        "示意",
+        "坐标",
+        "置信度"
+      ],
+      "body": "真实截面定位需确认轴向分量、通道安装方位、绳径、提离和磁场标定；方位、径向深度和沿绳位置属于不同坐标量，不能互相替代。",
+      "limitations": "本项目32mm绳径、2mm提离、通道1为0度逆时针均布均是用户允许的示意假设。IMU阵列动画的默认半径也不是实测安装尺寸。",
+      "implementation_status": "方位射线与扩散扇区已显示；新增独立中心截面偶极子条件估计，实物深度和坐标保持未标定",
+      "references": [
+        {
+          "source": "P2025UCA",
+          "pdf_pages": [
+            4,
+            5,
+            8
+          ],
+          "locator": "Sec.3.1, Fig.7–8; Sec.5.2, Fig.14"
+        }
+      ]
+    },
+    {
+      "id": "K46",
+      "title": "区域命中式定位误差与中心坐标误差的区别",
+      "tags": [
+        "误差",
+        "定位精度",
+        "0.35",
+        "毫米",
+        "验证"
+      ],
+      "body": "论文式(6)定义区域定位误差：当计算点到真值缺陷中心的距离d不大于缺陷半径r时记为0，否则为d-r。因此点落入缺陷区域即可得0误差。实测三处缺陷的该指标为0、0、0.35mm。",
+      "limitations": "0.35mm不是本项目精度，也不等同于缺陷中心坐标误差。后续应同时报告圆周角差、中心欧氏误差、深度误差和区域命中误差。",
+      "implementation_status": "已接入评估口径；本项目缺少截面真值，不报告毫米级定位准确率",
+      "references": [
+        {
+          "source": "P2025UCA",
+          "pdf_pages": [
+            6,
+            8
+          ],
+          "locator": "Sec.3.2, Eq.(6), Table2; Sec.5.2, Fig.14"
+        }
+      ]
+    },
+    {
+      "id": "K47",
+      "title": "内部缺陷量化验证的样本范围与迁移限制",
+      "tags": [
+        "泛化",
+        "训练",
+        "测试",
+        "内部缺陷",
+        "样本"
+      ],
+      "body": "论文量化仿真包含42组，30组训练、12组测试；实验为3处人工内部缺陷重复采集10次，共30个缺陷信号，20个训练、10个测试。",
+      "limitations": "重复采集划分不能直接证明对独立绳样或未知真实工况泛化。应按绳样和物理缺陷隔离训练测试，检验不同深度、提离与多缺陷重叠。",
+      "implementation_status": "已接入方法验证边界；本项目候选仍需人工或实物复核",
+      "references": [
+        {
+          "source": "P2025UCA",
+          "pdf_pages": [
+            7,
+            8,
+            9
+          ],
+          "locator": "Sec.4.2, Fig.11; Sec.5.3.1, Fig.15"
+        }
+      ]
+    },
+    {
+      "id": "K48",
+      "title": "同心圆环下的轴向点磁偶极子中心截面模型",
+      "tags": [
+        "深度",
+        "偶极子",
+        "截面",
+        "正向模型"
+      ],
+      "body": "中心截面模型为y(theta)=A[S²+r²−2Sr cos(theta−theta0)]^(−3/2)，S=R+h、r=R−d。A为有符号幅值参数；d为等效磁源中心埋深，不是缺口切入深度。坐标中z表示绳轴，本项目以X测量轴向分量。",
+      "limitations": "自由空间等效源、小间隙、单磁源与中心截面均是假设；未显式处理钢丝绳磁性边界，当前几何亦为示意值。",
+      "implementation_status": "已实现以m为内部长度单位的整圈有符号拟合",
+      "references": [
+        {
+          "source": "M2026DIPOLE",
+          "sections": [
+            3,
+            4,
+            5
+          ],
+          "pdf_pages": [],
+          "locator": "用户方法说明第3,4,5节"
+        }
+      ]
+    },
+    {
+      "id": "K49",
+      "title": "深度解析初值与原始信号多初值拟合",
+      "tags": [
+        "反演",
+        "深度",
+        "拟合",
+        "原始信号"
+      ],
+      "body": "P^(−2/3)可拟合alpha+beta cos(theta)+gamma sin(theta)，据kappa=√(beta²+gamma²)/alpha估计r=S*kappa/(1+√(1−kappa²))。该初值需alpha>0、0≤kappa<1且0≤r≤R。推荐对原始有符号数据做多初值非线性拟合，给定位置时幅值A可线性消元。",
+      "limitations": "负幂变换放大弱通道噪声，不能作为最终估计；不能用峰峰值或原始总场的绝对值替代去背景后的中心截面信号。",
+      "implementation_status": "已接入线性变换合法初值与16组以上多初值、带噪声权重的原始截面拟合",
+      "references": [
+        {
+          "source": "M2026DIPOLE",
+          "sections": [
+            6,
+            7
+          ],
+          "pdf_pages": [],
+          "locator": "用户方法说明第6,7节"
+        }
+      ]
+    },
+    {
+      "id": "K50",
+      "title": "深度可辨识性和单磁源模型拒绝检查",
+      "tags": [
+        "不确定性",
+        "残差",
+        "多缺陷",
+        "深度"
+      ],
+      "body": "残差小不等于深度可靠。深部或大提离可使环周分布近似均匀；提离、轴向中心偏移、有限间隙、多磁源和增益差异可能与深度耦合。应检查可用通道、同号形态、约束边界与噪声尺度下的深度剖面。",
+      "limitations": "当前可相容范围不包含几何系统误差，也不是实测标定置信区间。接近绳中心时角度无定义；模型拒绝后不能把最佳拟合诊断值当成有效深度。",
+      "implementation_status": "已实现拒绝门控和剖面范围；通过仅标为假设几何下的条件模型估计",
+      "references": [
+        {
+          "source": "M2026DIPOLE",
+          "sections": [
+            7,
+            8,
+            10
+          ],
+          "pdf_pages": [],
+          "locator": "用户方法说明第7,8,10节"
+        }
+      ]
+    },
+    {
+      "id": "K51",
+      "title": "深度、磁矩与断丝数量不可直接等同",
+      "tags": [
+        "断丝",
+        "磁矩",
+        "定量",
+        "验证"
+      ],
+      "body": "m约为有效磁化强度×断丝面积×断口间隙，缺少这些量的独立信息时，深度和幅值不能唯一换算断丝数量。二维轴向扫描可用一般偶极子模型联合估计中心位置，但需要轴向空间坐标。",
+      "limitations": "当前CSV磁通道单位未经T标定，因此拟合幅值仅是原数据单位×m³的待估量，不输出物理磁矩。数值闭环验证不是钢丝绳有限元或实验验证。",
+      "implementation_status": "未输出断丝数或实测磁矩；真实定量需独立有限元、试样和标定集",
+      "references": [
+        {
+          "source": "M2026DIPOLE",
+          "sections": [
+            8,
+            9,
+            10,
+            12
+          ],
+          "pdf_pages": [],
+          "locator": "用户方法说明第8,9,10,12节"
+        }
+      ]
+    }
+  ],
+  "method_names": {
+    "paper2021": "斜向股纹滤波与环周中值背景抑制",
+    "paper2023": "Kalman去趋势与形态学背景抑制",
+    "baseline": "移动均值去趋势与Hilbert包络提取"
+  }
+}

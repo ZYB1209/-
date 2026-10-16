@@ -83,3 +83,7 @@ python -m unittest test_evaluate_agent
 | `evaluate_agent.py` / `view_evaluation.py` | 真实标注评分与可视化 |
 
 算法属于参考论文的工程实现及启发式扩展，尚未证明智能体优于固定滤波检测流程，也未训练新的图像检测器。科研贡献和泛化性能需要独立数据、对照及消融实验验证。
+
+## 在线标注与检测平台（待云端部署）
+
+新增[web-platform](web-platform/README.md)：私有访问、三轴CSV上传、时间与通道范围框选、标注版本、后台检测及冻结预测评分。源代码与Docker配置已准备；实际访问地址、持久磁盘与模型Secrets需要在目标云账号完成配置。原始数据和密钥不进入GitHub。

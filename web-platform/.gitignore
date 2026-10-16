@@ -1,0 +1,15 @@
+storage/
+__pycache__/
+**/__pycache__/
+**/runs/
+**/.local_*
+.env
+.env.*
+!.env.example
+*.zip
+*.log
+*.npz
+*.csv
+*.sqlite*
+*.db
+tests/tmp*/

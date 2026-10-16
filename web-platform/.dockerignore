@@ -1,0 +1,9 @@
+storage
+__pycache__
+**/__pycache__
+**/runs
+**/.local_*
+.env
+.git
+tests
+*.zip
